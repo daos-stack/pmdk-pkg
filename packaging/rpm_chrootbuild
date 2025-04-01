@@ -161,4 +161,8 @@ if [ -d /scratch/mock ]; then
     fi
 fi
 
+if [ ! "$rc" == "0" ]; then
+    echo "rc = $rc"
+fi
+
 exit "$rc"

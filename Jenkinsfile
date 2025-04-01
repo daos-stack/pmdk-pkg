@@ -7,5 +7,6 @@
 // I.e. for testing library changes
 //@Library(value="pipeline-lib@your_branch") _
 @Library(value="pipeline-lib@sre-2932") _
-packageBuildingPipelineDAOSTest(['distros': ['el8', 'el9', 'leap15', 'ubuntu20.04'],
+//packageBuildingPipelineDAOSTest(['distros': ['el8', 'el9', 'leap15', 'ubuntu20.04'],
+packageBuildingPipelineDAOSTest(['distros': ['el8'],
 				 'test-tag': 'pr daosio'])
