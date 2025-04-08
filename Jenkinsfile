@@ -9,5 +9,6 @@
 @Library(value="pipeline-lib@sre-2932") _
 //@Library(value="trusted-pipeline-lib@main")
 //packageBuildingPipelineDAOSTest(['distros': ['el8', 'el9', 'leap15', 'ubuntu20.04'],
-packageBuildingPipelineDAOSTest(['distros': ['el8'],
+packageBuildingPipelineDAOSTest(['distros': ['el8', 'el9', 'leap15'],
+//packageBuildingPipelineDAOSTest(['distros': ['el8'],
 				 'test-tag': 'pr daosio'])
