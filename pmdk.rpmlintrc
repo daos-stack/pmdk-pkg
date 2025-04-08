@@ -6,6 +6,6 @@ from Config import *
 
 # NMVL was renamed to PMDK and tools were put in individual packages
 addFilter('W: obsolete-not-provided nvml-tools')
-addFilter("spelling-error .* pmdk")
-addFilter("spelling-error .* libpmemobj")
-addFilter("spelling-error .* pmemcheck")
+addFilter('E: spelling-error .* pmdk')
+addFilter('E: spelling-error .* libpmemobj')
+addFilter('E: spelling-error .* pmemcheck')
