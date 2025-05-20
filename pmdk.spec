@@ -404,10 +404,7 @@ make %{make_common_args} check
 %endif
 %endif
 
-%if 0%{?__debug_package} == 0
-%debug_package
-%endif
-
+%define debug_package %{nil}
 
 %changelog
 * Wed Nov 06 2024  Tomasz Gromadzki <tomasz.gromadzki@intel.com> - 2.1.0-3
