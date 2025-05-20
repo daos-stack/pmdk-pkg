@@ -21,7 +21,7 @@
 %global _hardened_build 1
 
 %define min_ndctl_ver 63
-%define make_common_args EXTRA_CFLAGS="-Wno-error -g" NORPATH=1 BUILD_EXAMPLES=n BUILD_BENCHMARKS=n
+%define make_common_args EXTRA_CFLAGS="-Wno-error -ggdb" NORPATH=1 BUILD_EXAMPLES=n BUILD_BENCHMARKS=n
 
 Name:       pmdk
 Version:    %{major}.%{minor}.%{bugrelease}%{?prerelease:~%{prerelease}}
