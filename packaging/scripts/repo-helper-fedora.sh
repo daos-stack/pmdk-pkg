@@ -10,11 +10,7 @@ set -uex
 : "${REPOSITORY_NAME:=artifactory}"
 : "${archive:=}"
 if [ "$FVERSION" != "latest" ]; then
-    if [ "$FVERSION" != "42" ]; then
-        if [ "$FVERSION" != "41" ]; then
-            archive="-archive"
-        fi
-    fi
+    archive="-archive"
 fi
 
 # shellcheck disable=SC2120
@@ -66,7 +62,7 @@ if [ -n "$REPO_FILE_URL" ]; then
     pushd /etc/yum.repos.d/
     curl -k --noproxy '*' -sSf                                  \
          -o "daos_ci-fedora${archive}-${REPOSITORY_NAME}.repo"  \
-         "${REPO_FILE_URL}daos_ci-fedora${archive}-${REPOSITORY_NAME}.repo"
+         "{$REPO_FILE_URL}daos_ci-fedora${archive}-${REPOSITORY_NAME}.repo"
     disable_repos /etc/yum.repos.d/
     popd
 fi
