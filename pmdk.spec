@@ -16,7 +16,7 @@
 %global minor 1
 %global bugrelease 0
 #%%global prerelease rc1
-%global buildrelease 3
+%global buildrelease 4
 
 %global _hardened_build 1
 
@@ -44,6 +44,8 @@ Patch0: %{version}..%{commit}.patch
 Patch1: https://github.com/pmem/pmdk/commit/61e32285370e629e2b36bbb991b919e44f87d915.patch
 # Fix https://github.com/pmem/pmdk/issues/6126 : Unnecessary warning: "Cannot find any matching device, no bad blocks found" for non-pmem HW
 Patch2: https://github.com/pmem/pmdk/commit/518b7426a13b21f98b2d2c435fa645770899446a.patch
+# Fix https://daosio.atlassian.net/browse/DAOS-17449 : Hide the missing SDS warning for sys_db while operating in md-on-ssd mode
+Patch3: https://github.com/daos-stack/pmdk/commit/10a70396f58f049281f4497822c80b79205cc1cd.patch
 
 BuildRequires:  gcc
 BuildRequires:  make
@@ -411,6 +413,13 @@ echo "SKIP check step to speedup the build"
 
 
 %changelog
+* Tue Sep 09 2025  Jan Michalski <jan-marian.michalski@hpe.com> - 2.1.0-4
+- expand the sds.at_create CTL to also cover pmemobj_open() (daos-stack/pmdk#5, DAOS-17449)
+  - Previously, this CTL affected only pmemobj_create().
+  - Now, it affects both pmemobj_create() and pmemobj_open().
+  - pmemobj_open() won't be able to open a pool with SDS enabled if the feature is currently force-disabled.
+  - Conversely, pmemobj_open() does not issue a warning when attempting to open a pool with SDS disabled while the feature is force-disabled.
+
 * Wed Nov 06 2024  Tomasz Gromadzki <tomasz.gromadzki@intel.com> - 2.1.0-3
 - Apply patches to silence annoying error messages on:
   - an intentional transaction abort and

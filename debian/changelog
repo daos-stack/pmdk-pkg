@@ -1,3 +1,12 @@
+pmdk (2.1.0-4) stable; urgency=medium
+  * expand the sds.at_create CTL to also cover pmemobj_open() (daos-stack/pmdk#5, DAOS-17449)
+    * Previously, this CTL affected only pmemobj_create().
+    * Now, it affects both pmemobj_create() and pmemobj_open().
+    * pmemobj_open() won't be able to open a pool with SDS enabled if the feature is currently force-disabled.
+    * Conversely, pmemobj_open() does not issue a warning when attempting to open a pool with SDS disabled while the feature is force-disabled.
+
+ --  Jan Michalski <jan-marian.michalski@hpe.com> Tue, 09 Sep 2025 21:59:00 +0000
+
 pmdk (2.1.0-3) stable; urgency=medium
   * Apply patches to silence annoying error messages on:
     * an intentional transaction abort and
