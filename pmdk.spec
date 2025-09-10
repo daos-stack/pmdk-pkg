@@ -414,11 +414,9 @@ make %{make_common_args} check
 
 %changelog
 * Tue Sep 09 2025  Jan Michalski <jan-marian.michalski@hpe.com> - 2.1.0-4
-- expand the sds.at_create CTL to also cover pmemobj_open() (daos-stack/pmdk#5, DAOS-17449)
-  - Previously, this CTL affected only pmemobj_create().
-  - Now, it affects both pmemobj_create() and pmemobj_open().
-  - pmemobj_open() won't be able to open a pool with SDS enabled if the feature is currently force-disabled.
-  - Conversely, pmemobj_open() does not issue a warning when attempting to open a pool with SDS disabled while the feature is force-disabled.
+- Expand the PMEMOBJ_CONF="sds.at_create=0" CTL to also cover pmemobj_open() (daos-stack/pmdk#5, DAOS-17449)
+  - Previously, this CTL affected only pmemobj_create(). Now, it affects both pmemobj_create() and pmemobj_open().
+  - Set PMEMOBJ_CONF="sds.at_create=0" when working without PMem and you want to suppress warnings about missing SDS support. The SDS support is only relevant for PMem-backed files.
 
 * Wed Nov 06 2024  Tomasz Gromadzki <tomasz.gromadzki@intel.com> - 2.1.0-3
 - Apply patches to silence annoying error messages on:
