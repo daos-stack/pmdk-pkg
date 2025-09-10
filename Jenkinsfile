@@ -8,5 +8,4 @@
 //@Library(value="pipeline-lib@your_branch") _
 //@Library(value="trusted-pipeline-lib@your_branch") _
 packageBuildingPipelineDAOSTest(['distros': ['el8', 'el9', 'leap15'],
-//packageBuildingPipelineDAOSTest(['distros': ['el8'],
 				 'test-tag': 'pr daosio'])

@@ -388,7 +388,7 @@ echo 'PMEMOBJ_CONF="sds.at_create=0"' >> src/test/testconfig.sh
 echo 'TEST_BUILD="debug nondebug"' >> src/test/testconfig.sh
 echo 'TEST_FS="pmem any none"' >> src/test/testconfig.sh
 echo "SKIP check step to speedup the build"
-# make %{make_common_args} check
+make %{make_common_args} check
 
 %if 0%{?suse_version} >= 01315
 %post   -n libpmem%{?libmajor} -p /sbin/ldconfig
