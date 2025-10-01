@@ -8,10 +8,6 @@
 # Ignore an issue with unpackaged libpmem2 files
 %define _unpackaged_files_terminate_build 0
 
-%if %{defined suse_version}
-    %define dist .suse%{suse_version}
-%endif
-
 %global major 2
 %global minor 1
 %global bugrelease 0
